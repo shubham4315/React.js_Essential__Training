@@ -11,7 +11,7 @@ function Main(props){
     <section>
       <p>we serve the most {props.adjective} food around.</p>
       <ul style={{textAlign:"left"}}>
-        {props.Dishes.map((dish) => <li>{dish}</li>)}
+        {props.Dishes.map((dish) => <li key={dish.id}>{dish.title}</li>)}
       </ul>
     </section>
     
@@ -24,15 +24,16 @@ function Footer(props){
   );
 }
 
-const Dishes = ["Pasta" , "Salmon" , "Fish" , "Dosa"]
-
-Dishes.map((dish)=>console.log(dish))
+const Dishes = ["Pasta" , "Salmon" , "Fish" , "Dosa"];
+const dishObjects = Dishes.map((dish,i) => ({id:i,title:dish}));
+console.log(dishObjects);
+Dishes.map((dish)=>console.log(dish));
 
 function App() {
   return (
     <div className="App">
       <Header name="cindy"/>
-      <Main adjective="AMAZING" Dishes={Dishes}/>
+      <Main adjective="AMAZING" Dishes={dishObjects}/>
       <Footer year={new Date().getFullYear()}/>
     </div>
   );
