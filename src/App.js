@@ -11,8 +11,7 @@ function Main(props){
   return(
     <section>
       <p>we serve the most {props.adjective} food around.</p>
-      <img src={restaurant} width={500} alt="restaurant image"/>
-      <img src="https://github.com/shubham4315.png" height={340}/>
+      <img src={restaurant} alt="restaurant image"/>
       <ul style={{textAlign:"left"}}>
         {props.Dishes.map((dish) => <li key={dish.id}>{dish.title}</li>)}
       </ul>
@@ -35,7 +34,7 @@ Dishes.map((dish)=>console.log(dish));
 function App() {
   return (
     <div className="App">
-      <Header name="cindy"/>
+      <Header name="Cindy"/>
       <Main adjective="AMAZING" Dishes={dishObjects}/>
       <Footer year={new Date().getFullYear()}/>
     </div>
