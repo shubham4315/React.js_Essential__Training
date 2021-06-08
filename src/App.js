@@ -8,7 +8,13 @@ function Header(props){
 
 function Main(props){
   return(
-    <p>we serve the most {props.adjective} food around.</p>
+    <section>
+      <p>we serve the most {props.adjective} food around.</p>
+      <ul style={{textAlign:"left"}}>
+        {props.Dishes.map((dish) => <li>{dish}</li>)}
+      </ul>
+    </section>
+    
   );
 }
 
@@ -18,11 +24,15 @@ function Footer(props){
   );
 }
 
+const Dishes = ["Pasta" , "Salmon" , "Fish" , "Dosa"]
+
+Dishes.map((dish)=>console.log(dish))
+
 function App() {
   return (
     <div className="App">
       <Header name="cindy"/>
-      <Main adjective="AMAZING"/>
+      <Main adjective="AMAZING" Dishes={Dishes}/>
       <Footer year={new Date().getFullYear()}/>
     </div>
   );
