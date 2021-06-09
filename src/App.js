@@ -1,26 +1,15 @@
 import './App.css';
 import restaurant from './restaurant.jpeg'
-
-function SecretComponent(){
-  return(<h1>Super Secret Information for uthorized users only.</h1>);
-}
-
-function RegularComponent(){
-  return(
-    <h1>Everyone can see this Information</h1>
-  );
-}
-
-function App({authorized}) {
-  /*if(props.authorized){
-    return <SecretComponent/>
-  }
-  else{
-    return <RegularComponent/>
-  }*/
+import React,{useState} from "react";
+function App() {
+  //const what = useState("Happy");
+  const [emotion,setEmotion] = useState("Happy");
   return(
     <>
-    {authorized ? (<SecretComponent/>):(<RegularComponent/>)}
+    <h1>Current Emotion is {emotion}.</h1>
+    <button onClick={() => setEmotion("Happy")}>Happy</button>
+    <button onClick={() => setEmotion("Frustrated")}>frustrated</button>
+    <button onClick={() => setEmotion("Enthusiastic")}>Enthuse</button>
     </>
   );
 }
