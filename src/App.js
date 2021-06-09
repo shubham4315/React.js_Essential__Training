@@ -11,7 +11,7 @@ function RegularComponent(){
   );
 }
 
-function App(props) {
+function App({authorized}) {
   /*if(props.authorized){
     return <SecretComponent/>
   }
@@ -20,7 +20,7 @@ function App(props) {
   }*/
   return(
     <>
-    {props.authorized ? <SecretComponent/>:<RegularComponent/>}
+    {authorized ? (<SecretComponent/>):(<RegularComponent/>)}
     </>
   );
 }
